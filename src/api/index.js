@@ -18,6 +18,16 @@ export default () => {
       message: `Welcome to ${product.title}!`
     })
   })
+  router.use(session({
+    name: 'someAuth',
+    secret: 'somesecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: (1000 * 60 * 100)
+    }
+  }));
+
 
   return router;
 }
